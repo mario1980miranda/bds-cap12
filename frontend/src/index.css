@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --white-color: #fff;
+  --blue-color: #334ac4;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--white-color);
+  color: var(--blue-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
