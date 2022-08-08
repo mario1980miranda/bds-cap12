@@ -17,3 +17,15 @@
 .store-select-filter__indicator-separator {
   display: none;
 }
+
+.store-select-filter__placeholder {
+  color: var(--grey-color) !important;
+}
+
+.store-select-filter__menu {
+  color: var(--grey-color) !important;
+}
+
+.store-select-filter__single-value {
+  color: var(--grey-color) !important;
+}

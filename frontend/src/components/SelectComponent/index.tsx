@@ -1,21 +1,43 @@
 import Select from 'react-select';
 import { Controller, useForm } from 'react-hook-form';
 import { Store } from '../../types/Store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { requestBackend } from '../../util/requests';
 
 import './styles.css';
 
-type StoreFilterData = {
-  id: number;
+export type StoreFilterData = {
   store: Store | null;
 };
 
-function SelectComponent() {
+type Props = {
+  onSubmitFilter: (data: StoreFilterData) => void;
+};
+
+function SelectComponent({ onSubmitFilter }: Props) {
   const [selectStores, setSelectStores] = useState<Store[]>([]);
   const { register, handleSubmit, setValue, getValues, control } = useForm<StoreFilterData>();
+  const onsubmit = (formData: StoreFilterData) => {
+    onSubmitFilter(formData);
+  };
+  const handleChangeStore = (value: Store) => {
+    setValue('store', value);
+
+    const obj: StoreFilterData = {
+      store: getValues('store')
+    };
+
+    onSubmitFilter(obj);
+  };
+  useEffect(() => {
+    requestBackend.get('/stores').then((response) => {
+      console.log(response.data);
+      setSelectStores(response.data);
+    });
+  }, []);
   return (
     <div className="base-card select-component-card">
-      <form className="select-component-form">
+      <form onSubmit={handleSubmit(onsubmit)} className="select-component-form">
         <div className="select-component-select">
           <Controller
             name="store"
@@ -27,7 +49,9 @@ function SelectComponent() {
                 classNamePrefix="store-select-filter"
                 isClearable
                 placeholder="Filro de loja"
-                //onChange={() => {}}
+                getOptionLabel={(store: Store) => store.name}
+                getOptionValue={(store: Store) => String(store.id)}
+                onChange={(value) => handleChangeStore(value as Store)}
               />
             )}
           />
