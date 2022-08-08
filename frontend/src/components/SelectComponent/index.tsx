@@ -16,7 +16,7 @@ type Props = {
 
 function SelectComponent({ onSubmitFilter }: Props) {
   const [selectStores, setSelectStores] = useState<Store[]>([]);
-  const { register, handleSubmit, setValue, getValues, control } = useForm<StoreFilterData>();
+  const { handleSubmit, setValue, getValues, control } = useForm<StoreFilterData>();
   const onsubmit = (formData: StoreFilterData) => {
     onSubmitFilter(formData);
   };
