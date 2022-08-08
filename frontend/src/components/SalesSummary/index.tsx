@@ -1,3 +1,4 @@
+import DonutChart from '../DonutChart';
 import './styles.css';
 
 function SalesSummary() {
@@ -7,7 +8,13 @@ function SalesSummary() {
         <h1>R$ 746.484,00</h1>
         <span>Total de vendas</span>
       </div>
-      <div className="sales-summary-bottom">Chart</div>
+      <div className="sales-summary-bottom">
+        <DonutChart
+          name="Lojas"
+          labels={['Primeiro', 'Segundo', 'Terceiro']}
+          series={[50, 25, 25]}
+        />
+      </div>
     </div>
   );
 }
