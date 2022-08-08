@@ -11,9 +11,12 @@ type ControlComponentsData = {
 
 function App() {
   const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>({
-    filterData: { store: null }
+    filterData: { store: { id: 0, name: '' } }
   });
   const handleSubmitFilter = (data: StoreFilterData) => {
+    if (data.store === null) {
+      data = { store: { id: 0, name: '' } };
+    }
     console.log('Filtro ', data);
     setControlComponentsData({ filterData: data });
   };
@@ -22,7 +25,7 @@ function App() {
       <Header />
       <div className="app-container">
         <SelectComponent onSubmitFilter={handleSubmitFilter} />
-        <SalesSummary />
+        <SalesSummary filterData={controlComponentsData.filterData} />
       </div>
     </div>
   );
