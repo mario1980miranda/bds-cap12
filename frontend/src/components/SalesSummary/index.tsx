@@ -25,11 +25,10 @@ function SalesSummary({ filterData }: Props) {
     requestBackend
       .get<SalesSummaryData>(`/sales/summary?storeId=${filterData.store?.id}`)
       .then((response) => {
-        console.log('/sales/summary', response.data);
         setSummary(response.data);
       })
       .catch(() => {
-        console.log('Error to fetch sales-by=date');
+        console.log('Error to fetch /sales/summary');
       });
   }, [filterData]);
   useEffect(() => {
@@ -40,7 +39,7 @@ function SalesSummary({ filterData }: Props) {
         setSalesByGender(newSalesByStore);
       })
       .catch(() => {
-        console.log('Fail to fetch /sales/by-store');
+        console.log('Fail to fetch /sales/by-gender');
       });
   }, [filterData]);
   return (

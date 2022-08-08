@@ -17,3 +17,17 @@
 .sales-summary-top {
   margin-bottom: 50px;
 }
+
+@media (min-width: 576px) {
+  .sales-summary-card {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  .sales-summary-card {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

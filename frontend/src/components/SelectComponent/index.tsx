@@ -31,7 +31,6 @@ function SelectComponent({ onSubmitFilter }: Props) {
   };
   useEffect(() => {
     requestBackend.get('/stores').then((response) => {
-      console.log(response.data);
       setSelectStores(response.data);
     });
   }, []);
@@ -48,7 +47,7 @@ function SelectComponent({ onSubmitFilter }: Props) {
                 options={selectStores}
                 classNamePrefix="store-select-filter"
                 isClearable
-                placeholder="Filro de loja"
+                placeholder="Filtro de loja"
                 getOptionLabel={(store: Store) => store.name}
                 getOptionValue={(store: Store) => String(store.id)}
                 onChange={(value) => handleChangeStore(value as Store)}

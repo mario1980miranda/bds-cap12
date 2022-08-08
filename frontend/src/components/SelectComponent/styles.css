@@ -29,3 +29,9 @@
 .store-select-filter__single-value {
   color: var(--grey-color) !important;
 }
+
+@media (min-width: 576px) {
+  .select-component-card {
+    margin-top: 40px;
+  }
+}

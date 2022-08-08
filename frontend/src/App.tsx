@@ -17,7 +17,6 @@ function App() {
     if (data.store === null) {
       data = { store: { id: 0, name: '' } };
     }
-    console.log('Filtro ', data);
     setControlComponentsData({ filterData: data });
   };
   return (
