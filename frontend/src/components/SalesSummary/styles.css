@@ -1,0 +1,19 @@
+.sales-summary-card {
+  margin-top: 10px;
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sales-summary-card h1 {
+  font-size: 36px;
+}
+
+.sales-summary-card span {
+  font-size: 18px;
+  color: var(--grey-color);
+}
+
+.sales-summary-top {
+  margin-bottom: 50px;
+}
