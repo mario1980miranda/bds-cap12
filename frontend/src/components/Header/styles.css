@@ -1,0 +1,5 @@
+.main-header-container {
+  padding: 25px 40px;
+  border: 1px solid black;
+  background-color: var(--white-color);
+}
